@@ -7,8 +7,14 @@ pkgdesc="Multi-function logic analyzer, oscilloscope and DAQ GUI"
 repology=("project: ${pkgname}")
 maintainer=("Huang Rui <vowstar@gmail.com>")
 breaks=("${pkgname}-bin" "${pkgname}-git" "${pkgname}-deb")
-source=("https://github.com/DreamSourceLab/DSView/archive/refs/tags/v${pkgver}.tar.gz")
-sha256sums=("da68674c32da7bd212883d599267a137ce152060d28796ea16cc3442695de7ab")
+source=(
+  "https://github.com/DreamSourceLab/DSView/archive/refs/tags/v${pkgver}.tar.gz"
+  "zoom-shortcuts.patch::https://github.com/DreamSourceLab/DSView/commit/b0abecd2e6ce8fad2e6c8a671d38793681d220cd.patch"
+)
+sha256sums=(
+  "da68674c32da7bd212883d599267a137ce152060d28796ea16cc3442695de7ab"
+  "76c96663bf157364921866298097964e81dba097e9cda674b0b0eac8f6cce62d"
+)
 depends=(
   "libqt5core5a"
   "libqt5gui5"
@@ -41,6 +47,7 @@ prepare() {
   sed -i '/^#include <string.h>$/a #include <strings.h>' \
     libsigrok4DSL/input/in_wav.c \
     libsigrok4DSL/strutil.c
+  patch -p1 -i ../zoom-shortcuts.patch
 }
 
 build() {

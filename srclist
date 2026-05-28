@@ -2764,7 +2764,9 @@ pkgbase = dsview
 	maintainer = Huang Rui <vowstar@gmail.com>
 	repology = project: dsview
 	source = https://github.com/DreamSourceLab/DSView/archive/refs/tags/v1.3.2.tar.gz
+	source = zoom-shortcuts.patch::https://github.com/DreamSourceLab/DSView/commit/b0abecd2e6ce8fad2e6c8a671d38793681d220cd.patch
 	sha256sums = da68674c32da7bd212883d599267a137ce152060d28796ea16cc3442695de7ab
+	sha256sums = 76c96663bf157364921866298097964e81dba097e9cda674b0b0eac8f6cce62d
 
 pkgname = dsview
 ---
